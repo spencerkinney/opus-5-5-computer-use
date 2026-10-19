@@ -1,0 +1,12 @@
+services:
+  desktop:
+    build: ./desktop
+    image: claude-desktop
+    container_name: claude-desktop
+    init: true
+    ports:
+      - "127.0.0.1:6080:6080" # watch at http://localhost:6080/vnc.html
+    shm_size: 1g
+    mem_limit: 4g
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
